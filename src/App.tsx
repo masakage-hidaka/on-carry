@@ -8,8 +8,12 @@ import { BookingConfirmationPage } from './pages/BookingConfirmationPage';
 import { TrackingPage } from './pages/TrackingPage';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
+import { TransportationPage } from './pages/TransportationPage';
+import { HirePage } from './pages/HirePage';
+import { DoctorPage } from './pages/DoctorPage';
+import { DinnerPage } from './pages/DinnerPage';
 
-type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation';
+type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation' | 'transportation' | 'hire' | 'doctor' | 'dinner' | 'hire-booking' | 'doctor-booking' | 'dinner-booking' | 'airport-booking' | 'transportation-combined';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -29,6 +33,14 @@ function App() {
     switch (currentPage) {
       case 'home':
         return <HomePage onNavigate={navigate} />;
+      case 'transportation':
+        return <TransportationPage onNavigate={navigate} />;
+      case 'hire':
+        return <HirePage onNavigate={navigate} />;
+      case 'doctor':
+        return <DoctorPage onNavigate={navigate} />;
+      case 'dinner':
+        return <DinnerPage onNavigate={navigate} />;
       case 'book':
         return <BookingPage onNavigate={navigate} initialHotelId={pageParams.hotelId} />;
       case 'booking-confirmation':
