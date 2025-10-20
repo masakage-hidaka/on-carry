@@ -12,10 +12,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
     {
       id: 'porter',
       icon: Package,
-      titleJa: '荷物配送',
-      titleEn: 'Luggage Porter',
-      descJa: 'ホテル間の荷物配送サービス',
-      descEn: 'Hotel-to-hotel luggage delivery',
+      titleJa: 'ポーターサービス',
+      titleEn: 'Porter Service',
+      descJa: '荷物配送・空港送迎',
+      descEn: 'Luggage delivery & airport transfer',
       bgColor: 'bg-blue-100',
       hoverBg: 'group-hover:bg-blue-200',
       textColor: 'text-blue-600',
@@ -133,14 +133,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <div className="flex items-center space-x-3 mb-4">
               <Package className="w-6 h-6 text-blue-600" />
               <h3 className="text-lg font-bold text-gray-900">
-                {language === 'ja' ? '荷物配送サービス' : 'Luggage Porter Service'}
+                {language === 'ja' ? 'ポーターサービス' : 'Porter Service'}
               </h3>
             </div>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>• {language === 'ja' ? 'ホテル間の荷物配送' : 'Hotel-to-hotel luggage delivery'}</li>
+              <li>• {language === 'ja' ? '関西国際空港送迎' : 'Kansai Airport transfer'}</li>
               <li>• {language === 'ja' ? 'QRコード簡単予約' : 'Easy booking with QR code'}</li>
               <li>• {language === 'ja' ? 'リアルタイム追跡' : 'Real-time tracking'}</li>
-              <li>• {language === 'ja' ? '当日・翌日配送可能' : 'Same-day and next-day delivery'}</li>
             </ul>
           </div>
 
