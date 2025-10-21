@@ -12,9 +12,8 @@ import { TransportationPage } from './pages/TransportationPage';
 import { HirePage } from './pages/HirePage';
 import { DoctorPage } from './pages/DoctorPage';
 import { DinnerPage } from './pages/DinnerPage';
-import { ManagementPage } from './pages/ManagementPage';
 
-type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation' | 'transportation' | 'hire' | 'doctor' | 'dinner' | 'hire-booking' | 'doctor-booking' | 'dinner-booking' | 'airport-booking' | 'transportation-combined' | 'management';
+type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation' | 'transportation' | 'hire' | 'doctor' | 'dinner' | 'hire-booking' | 'doctor-booking' | 'dinner-booking' | 'airport-booking' | 'transportation-combined';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -48,8 +47,6 @@ function App() {
         return <BookingConfirmationPage onNavigate={navigate} bookingNumber={pageParams.bookingNumber} />;
       case 'track':
         return <TrackingPage bookingNumber={pageParams.bookingNumber} />;
-      case 'management':
-        return <ManagementPage onNavigate={navigate} />;
       case 'login':
         return <LoginPage onNavigate={navigate} />;
       case 'signup':
