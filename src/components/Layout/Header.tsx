@@ -53,6 +53,14 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             >
               {t.nav.track}
             </button>
+            <button
+              onClick={() => onNavigate('management')}
+              className={`font-medium transition-colors ${
+                currentPage === 'management' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+              }`}
+            >
+              {language === 'ja' ? '管理' : 'Management'}
+            </button>
             {user ? (
               <button
                 onClick={() => signOut()}
@@ -135,6 +143,15 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
               className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
             >
               {t.nav.track}
+            </button>
+            <button
+              onClick={() => {
+                onNavigate('management');
+                setIsMenuOpen(false);
+              }}
+              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+            >
+              {language === 'ja' ? '管理' : 'Management'}
             </button>
             {user ? (
               <button
