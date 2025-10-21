@@ -36,8 +36,8 @@ export function AdminSetupPage() {
 
         setSuccess(true);
       }
-    } catch (err: any) {
-      setError(err.message || '管理者アカウントの作成に失敗しました');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : '管理者アカウントの作成に失敗しました');
     } finally {
       setLoading(false);
     }

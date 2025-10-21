@@ -26,7 +26,7 @@ interface Translations {
     step3: string;
     step3Desc: string;
   };
-  [key: string]: any;
+  [key: string]: Record<string, unknown> | { [key: string]: string };
 }
 
 const translations: Record<Language, Translations> = {

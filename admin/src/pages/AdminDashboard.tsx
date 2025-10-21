@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import {
-  Package, Car, Stethoscope, Utensils, Search, Filter, Eye, Clock,
-  CheckCircle, XCircle, AlertCircle, TrendingUp, DollarSign, Users,
-  Calendar, Download, RefreshCw, BarChart3, LogOut
+  Package, Car, Stethoscope, Utensils, Search, Eye, Clock,
+  CheckCircle, XCircle, AlertCircle, TrendingUp, DollarSign,
+  Download, RefreshCw, BarChart3, LogOut
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAdminAuth } from '../contexts/AdminAuthContext';
@@ -18,7 +18,7 @@ interface Booking {
   booking_status: string;
   created_at: string;
   scheduled_datetime?: string;
-  booking_data: any;
+  booking_data: Record<string, unknown>;
 }
 
 type ServiceFilter = 'all' | 'porter' | 'hire' | 'airport' | 'doctor' | 'dinner';
@@ -64,7 +64,7 @@ export function AdminDashboard() {
 
       if (error) throw error;
 
-      const formattedBookings = (data || []).map((booking: any) => ({
+      const formattedBookings = (data || []).map((booking: Record<string, unknown>) => ({
         id: booking.id,
         booking_number: booking.booking_number,
         service_type: booking.service_type,
@@ -159,14 +159,16 @@ export function AdminDashboard() {
     switch (dateFilter) {
       case 'today':
         return bookingDate >= today;
-      case 'week':
+      case 'week': {
         const weekAgo = new Date(today);
         weekAgo.setDate(weekAgo.getDate() - 7);
         return bookingDate >= weekAgo;
-      case 'month':
+      }
+      case 'month': {
         const monthAgo = new Date(today);
         monthAgo.setMonth(monthAgo.getMonth() - 1);
         return bookingDate >= monthAgo;
+      }
       default:
         return true;
     }
