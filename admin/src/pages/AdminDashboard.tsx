@@ -10,7 +10,6 @@ import { useAdminAuth } from '../contexts/AdminAuthContext';
 interface Booking {
   id: string;
   booking_number: string;
-  service_category: string;
   service_type: string;
   customer_name: string;
   customer_email: string;
@@ -22,7 +21,7 @@ interface Booking {
   booking_data: any;
 }
 
-type ServiceFilter = 'all' | 'transportation' | 'hire' | 'doctor' | 'dinner';
+type ServiceFilter = 'all' | 'porter' | 'hire' | 'airport' | 'doctor' | 'dinner';
 type StatusFilter = 'all' | 'pending' | 'confirmed' | 'in_progress' | 'completed' | 'cancelled';
 type DateFilter = 'all' | 'today' | 'week' | 'month';
 
@@ -68,10 +67,9 @@ export function AdminDashboard() {
       const formattedBookings = (data || []).map((booking: any) => ({
         id: booking.id,
         booking_number: booking.booking_number,
-        service_category: booking.service_category,
         service_type: booking.service_type,
-        customer_name: booking.booking_data?.customerName || 'N/A',
-        customer_email: booking.booking_data?.customerEmail || 'N/A',
+        customer_name: booking.customer_name || booking.booking_data?.customerName || 'N/A',
+        customer_email: booking.customer_email || booking.booking_data?.customerEmail || 'N/A',
         total_amount: booking.total_amount,
         payment_status: booking.payment_status,
         booking_status: booking.booking_status,
@@ -110,20 +108,22 @@ export function AdminDashboard() {
     }
   };
 
-  const getServiceIcon = (serviceCategory: string) => {
-    switch (serviceCategory) {
-      case 'transportation': return <Package className="w-5 h-5" />;
+  const getServiceIcon = (serviceType: string) => {
+    switch (serviceType) {
+      case 'porter': return <Package className="w-5 h-5" />;
       case 'hire': return <Car className="w-5 h-5" />;
+      case 'airport': return <Package className="w-5 h-5" />;
       case 'doctor': return <Stethoscope className="w-5 h-5" />;
       case 'dinner': return <Utensils className="w-5 h-5" />;
       default: return <Package className="w-5 h-5" />;
     }
   };
 
-  const getServiceColor = (serviceCategory: string) => {
-    switch (serviceCategory) {
-      case 'transportation': return 'bg-blue-100 text-blue-700 border-blue-200';
+  const getServiceColor = (serviceType: string) => {
+    switch (serviceType) {
+      case 'porter': return 'bg-blue-100 text-blue-700 border-blue-200';
       case 'hire': return 'bg-green-100 text-green-700 border-green-200';
+      case 'airport': return 'bg-purple-100 text-purple-700 border-purple-200';
       case 'doctor': return 'bg-red-100 text-red-700 border-red-200';
       case 'dinner': return 'bg-orange-100 text-orange-700 border-orange-200';
       default: return 'bg-gray-100 text-gray-700 border-gray-200';
@@ -178,7 +178,7 @@ export function AdminDashboard() {
       booking.customer_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       booking.customer_email.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesService = serviceFilter === 'all' || booking.service_category === serviceFilter;
+    const matchesService = serviceFilter === 'all' || booking.service_type === serviceFilter;
     const matchesStatus = statusFilter === 'all' || booking.booking_status === statusFilter;
     const matchesDate = filterByDate(booking);
 
@@ -197,10 +197,11 @@ export function AdminDashboard() {
   };
 
   const serviceBreakdown = {
-    transportation: bookings.filter(b => b.service_category === 'transportation').length,
-    hire: bookings.filter(b => b.service_category === 'hire').length,
-    doctor: bookings.filter(b => b.service_category === 'doctor').length,
-    dinner: bookings.filter(b => b.service_category === 'dinner').length,
+    porter: bookings.filter(b => b.service_type === 'porter').length,
+    hire: bookings.filter(b => b.service_type === 'hire').length,
+    airport: bookings.filter(b => b.service_type === 'airport').length,
+    doctor: bookings.filter(b => b.service_type === 'doctor').length,
+    dinner: bookings.filter(b => b.service_type === 'dinner').length,
   };
 
   const exportToCSV = () => {
@@ -327,12 +328,12 @@ export function AdminDashboard() {
         </div>
 
         {/* Service Breakdown */}
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
+        <div className="grid md:grid-cols-5 gap-4 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-5 border-l-4 border-blue-500">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">ポーター</p>
-                <p className="text-2xl font-bold text-gray-900">{serviceBreakdown.transportation}</p>
+                <p className="text-2xl font-bold text-gray-900">{serviceBreakdown.porter}</p>
               </div>
               <Package className="w-8 h-8 text-blue-500" />
             </div>
@@ -345,6 +346,16 @@ export function AdminDashboard() {
                 <p className="text-2xl font-bold text-gray-900">{serviceBreakdown.hire}</p>
               </div>
               <Car className="w-8 h-8 text-green-500" />
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm p-5 border-l-4 border-purple-500">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-600 mb-1">空港送迎</p>
+                <p className="text-2xl font-bold text-gray-900">{serviceBreakdown.airport}</p>
+              </div>
+              <Package className="w-8 h-8 text-purple-500" />
             </div>
           </div>
 
@@ -400,8 +411,9 @@ export function AdminDashboard() {
               className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="all">全サービス</option>
-              <option value="transportation">ポーター</option>
+              <option value="porter">ポーター</option>
               <option value="hire">ハイヤー</option>
+              <option value="airport">空港送迎</option>
               <option value="doctor">ドクター</option>
               <option value="dinner">ディナー</option>
             </select>
@@ -485,8 +497,8 @@ export function AdminDashboard() {
                         <span className="text-sm font-mono font-semibold text-gray-900">{booking.booking_number}</span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border ${getServiceColor(booking.service_category)}`}>
-                          {getServiceIcon(booking.service_category)}
+                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border ${getServiceColor(booking.service_type)}`}>
+                          {getServiceIcon(booking.service_type)}
                           {booking.service_type}
                         </div>
                       </td>
@@ -559,8 +571,8 @@ export function AdminDashboard() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 mb-1">サービス</p>
-                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-semibold border ${getServiceColor(selectedBooking.service_category)}`}>
-                      {getServiceIcon(selectedBooking.service_category)}
+                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-semibold border ${getServiceColor(selectedBooking.service_type)}`}>
+                      {getServiceIcon(selectedBooking.service_type)}
                       {selectedBooking.service_type}
                     </div>
                   </div>
