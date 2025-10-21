@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:admin": "vite --config vite.admin.config.ts",
     "build": "vite build",
+    "build:admin": "vite build --config vite.admin.config.ts",
+    "build:all": "npm run build && npm run build:admin",
     "lint": "eslint .",
     "preview": "vite preview",
+    "preview:admin": "vite preview --config vite.admin.config.ts --port 4174",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
