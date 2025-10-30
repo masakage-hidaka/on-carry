@@ -30,7 +30,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
           <div className="flex items-center">
             <button
               onClick={() => onNavigate('home')}
-              className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+              className="text-2xl font-bold text-orange-600 hover:text-orange-700 transition-colors"
             >
               OnCarry
             </button>
@@ -40,7 +40,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             <button
               onClick={() => onNavigate('home')}
               className={`font-medium transition-colors ${
-                currentPage === 'home' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                currentPage === 'home' ? 'text-orange-600' : 'text-gray-700 hover:text-orange-600'
               }`}
             >
               {t.nav.home}
@@ -48,7 +48,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             <button
               onClick={() => onNavigate('track')}
               className={`font-medium transition-colors ${
-                currentPage === 'track' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                currentPage === 'track' ? 'text-orange-600' : 'text-gray-700 hover:text-orange-600'
               }`}
             >
               {t.nav.track}
@@ -56,7 +56,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             {user ? (
               <button
                 onClick={() => signOut()}
-                className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="font-medium text-gray-700 hover:text-orange-600 transition-colors"
               >
                 {t.nav.logout}
               </button>
@@ -64,13 +64,13 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
               <>
                 <button
                   onClick={() => onNavigate('login')}
-                  className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                  className="font-medium text-gray-700 hover:text-orange-600 transition-colors"
                 >
                   {t.nav.login}
                 </button>
                 <button
                   onClick={() => onNavigate('signup')}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-orange-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-orange-700 transition-colors shadow-md"
                 >
                   {t.nav.signup}
                 </button>
@@ -80,14 +80,15 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             <div className="relative">
               <button
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
               >
                 <Globe className="w-5 h-5" />
                 <span className="text-xl">{currentLang?.flag}</span>
+                <span className="text-sm font-medium">{currentLang?.code.toUpperCase()}</span>
               </button>
 
               {isLangMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50">
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -95,8 +96,8 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                         setLanguage(lang.code);
                         setIsLangMenuOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-3 ${
-                        language === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                      className={`w-full text-left px-4 py-2.5 hover:bg-orange-50 flex items-center space-x-3 transition-colors ${
+                        language === lang.code ? 'bg-orange-50 text-orange-600 font-semibold' : 'text-gray-700'
                       }`}
                     >
                       <span className="text-xl">{lang.flag}</span>
@@ -110,7 +111,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-700 hover:text-blue-600"
+            className="md:hidden text-gray-700 hover:text-orange-600"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -123,7 +124,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                 onNavigate('home');
                 setIsMenuOpen(false);
               }}
-              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-50 rounded"
             >
               {t.nav.home}
             </button>
@@ -132,7 +133,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                 onNavigate('track');
                 setIsMenuOpen(false);
               }}
-              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-50 rounded"
             >
               {t.nav.track}
             </button>
@@ -142,7 +143,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                   signOut();
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-50 rounded"
               >
                 {t.nav.logout}
               </button>
@@ -153,7 +154,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                     onNavigate('login');
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-orange-50 rounded"
                 >
                   {t.nav.login}
                 </button>
@@ -162,7 +163,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                     onNavigate('signup');
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded text-center"
+                  className="block w-full text-left px-4 py-2 bg-orange-600 text-white hover:bg-orange-700 rounded text-center"
                 >
                   {t.nav.signup}
                 </button>
@@ -180,8 +181,8 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                     setLanguage(lang.code);
                     setIsMenuOpen(false);
                   }}
-                  className={`block w-full text-left px-4 py-2 hover:bg-gray-100 rounded flex items-center space-x-3 ${
-                    language === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                  className={`block w-full text-left px-4 py-2 hover:bg-orange-50 rounded flex items-center space-x-3 ${
+                    language === lang.code ? 'bg-orange-50 text-orange-600' : 'text-gray-700'
                   }`}
                 >
                   <span className="text-xl">{lang.flag}</span>
