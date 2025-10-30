@@ -36,7 +36,7 @@ export function SignupPage({ onNavigate }: SignupPageProps) {
     }
   };
 
-  const handleSocialLogin = async (provider: 'google' | 'facebook') => {
+  const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple' | 'kakao') => {
     setError('');
     setSocialLoading(provider);
 
@@ -179,6 +179,30 @@ export function SignupPage({ onNavigate }: SignupPageProps) {
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
               {socialLoading === 'facebook' ? '...' : 'Facebook'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleSocialLogin('apple')}
+              disabled={socialLoading !== null}
+              className="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-black text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+              </svg>
+              {socialLoading === 'apple' ? '...' : 'Apple'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleSocialLogin('kakao')}
+              disabled={socialLoading !== null}
+              className="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-yellow-400 text-sm font-medium text-gray-900 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3zm5.907 8.06l1.47-1.424a.472.472 0 0 0-.656-.681l-1.787 1.73V7.501a.472.472 0 0 0-.944 0v5.21s.05.013.062.013c.25 0 .462-.135.576-.347l.942-1.803 1.088 2.051c.127.238.396.292.613.156a.486.486 0 0 0 .156-.613l-1.52-2.108zm-8.822 2.587a.47.47 0 0 0 .471-.47v-4.41h1.319a.469.469 0 1 0 0-.94H8.556a.469.469 0 1 0 0 .94h1.318v4.41c0 .259.211.47.471.47h.002zm11.854-.663a.465.465 0 0 0 .037-.662l-1.787-1.73v3.184a.472.472 0 0 0 .944 0v-2.191l1.15 1.112a.473.473 0 0 0 .656.681v.606zm-8.934-1.71a.497.497 0 0 0-.498-.498H9.125v-1.544h2.382c.274 0 .498-.223.498-.498s-.224-.498-.498-.498H9.125V7.501a.498.498 0 0 0-.997 0v4.417c0 .275.224.498.498.498h2.881c.274 0 .498-.223.498-.498z"/>
+              </svg>
+              {socialLoading === 'kakao' ? '...' : 'Kakao'}
             </button>
           </div>
 

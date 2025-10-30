@@ -8,7 +8,7 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-  phoneNumber = '818012345678', // Default placeholder - replace with actual number
+  phoneNumber = '447862123343', // OnCarry emergency support number
   message,
   className = ''
 }: WhatsAppButtonProps) {

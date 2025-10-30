@@ -70,6 +70,8 @@ export function UserManagement() {
       email: { label: 'Email', color: 'bg-blue-100 text-blue-800' },
       google: { label: 'Google', color: 'bg-red-100 text-red-800' },
       facebook: { label: 'Facebook', color: 'bg-indigo-100 text-indigo-800' },
+      apple: { label: 'Apple', color: 'bg-gray-800 text-white' },
+      kakao: { label: 'Kakao', color: 'bg-yellow-100 text-yellow-900' },
     };
 
     const config = providers[provider] || { label: provider, color: 'bg-gray-100 text-gray-800' };
