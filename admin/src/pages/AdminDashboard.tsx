@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAdminAuth } from '../contexts/AdminAuthContext';
+import { UserManagement } from '../components/UserManagement';
 
 interface Booking {
   id: string;
@@ -24,9 +25,11 @@ interface Booking {
 type ServiceFilter = 'all' | 'porter' | 'hire' | 'airport' | 'doctor' | 'dinner';
 type StatusFilter = 'all' | 'pending' | 'confirmed' | 'in_progress' | 'completed' | 'cancelled';
 type DateFilter = 'all' | 'today' | 'week' | 'month';
+type TabView = 'bookings' | 'users';
 
 export function AdminDashboard() {
   const { user, signOut } = useAdminAuth();
+  const [activeTab, setActiveTab] = useState<TabView>('bookings');
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -260,10 +263,40 @@ export function AdminDashboard() {
               </button>
             </div>
           </div>
+
+          {/* Tab Navigation */}
+          <div className="flex gap-2 mt-4 border-b border-gray-200">
+            <button
+              onClick={() => setActiveTab('bookings')}
+              className={`flex items-center gap-2 px-4 py-2 border-b-2 font-medium transition-colors ${
+                activeTab === 'bookings'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <BarChart3 className="w-4 h-4" />
+              予約管理
+            </button>
+            <button
+              onClick={() => setActiveTab('users')}
+              className={`flex items-center gap-2 px-4 py-2 border-b-2 font-medium transition-colors ${
+                activeTab === 'users'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <Users className="w-4 h-4" />
+              ユーザー管理
+            </button>
+          </div>
         </div>
       </div>
 
       <div className="max-w-[1920px] mx-auto px-6 py-8">
+        {activeTab === 'users' ? (
+          <UserManagement />
+        ) : (
+          <>
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-5 border-2 border-gray-100">
@@ -545,7 +578,6 @@ export function AdminDashboard() {
             </div>
           )}
         </div>
-      </div>
 
       {/* Detail Modal */}
       {selectedBooking && (
@@ -668,6 +700,9 @@ export function AdminDashboard() {
           </div>
         </div>
       )}
+      </>
+        )}
+      </div>
     </div>
   );
 }

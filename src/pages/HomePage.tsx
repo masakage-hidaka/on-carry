@@ -1,5 +1,7 @@
 import { Package, Car, Stethoscope, UtensilsCrossed } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { WhatsAppButton } from '../components/WhatsAppButton';
+import { TravelHubSection } from '../components/TravelHubSection';
 
 interface HomePageProps {
   onNavigate: (page: string, params?: Record<string, string>) => void;
@@ -202,6 +204,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </button>
         </div>
       </div>
+
+      <TravelHubSection />
+
+      <WhatsAppButton />
     </div>
   );
 }
