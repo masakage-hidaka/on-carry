@@ -258,8 +258,8 @@ export function TravelHubSection() {
 
           <div className="mt-8">
             <img
-              src="https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Osaka Dotonbori street scene"
+              src="https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Osaka Dotonbori at night"
               className="w-full h-80 object-cover rounded-2xl shadow-2xl"
             />
           </div>
@@ -343,7 +343,7 @@ export function TravelHubSection() {
           <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
             <iframe
               title="Travel Hub Namba Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.4806!2d135.49983!3d34.66195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7146e1c5b3d%3A0x0!2zMzTCsDM5JzQzLjAiTiAxMzXCsDI5JzU5LjQiRQ!5e0!3m2!1sen!2sjp!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.5156837!2d135.49816!3d34.66155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e71596f77a8f%3A0x5b0b0b0b0b0b0b0b!2z5Y2X5bqD44OT44Or!5e0!3m2!1sja!2sjp!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -16,28 +16,28 @@ const vehicleOptions: Record<VehicleType, { nameJa: string; nameEn: string; capa
     nameEn: 'Sedan',
     capacity: 4,
     price: 8000,
-    imageUrl: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   wagon: {
     nameJa: 'ワゴン',
     nameEn: 'Wagon',
     capacity: 6,
     price: 10000,
-    imageUrl: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   luxury: {
     nameJa: 'ラグジュアリー',
     nameEn: 'Luxury',
     capacity: 4,
     price: 15000,
-    imageUrl: 'https://images.pexels.com/photos/3764984/pexels-photo-3764984.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
   van: {
     nameJa: 'バン',
     nameEn: 'Van',
     capacity: 8,
     price: 12000,
-    imageUrl: 'https://images.pexels.com/photos/2526127/pexels-photo-2526127.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=400',
   },
 };
 
