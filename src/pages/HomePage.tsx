@@ -254,7 +254,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Footer */}
-      <Footer />
+      <Footer onNavigate={onNavigate} />
 
       {/* WhatsApp Button */}
       <WhatsAppButton />

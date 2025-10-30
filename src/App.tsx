@@ -12,8 +12,17 @@ import { TransportationPage } from './pages/TransportationPage';
 import { HirePage } from './pages/HirePage';
 import { DoctorPage } from './pages/DoctorPage';
 import { DinnerPage } from './pages/DinnerPage';
+import { AboutPage } from './pages/AboutPage';
+import { TeamPage } from './pages/TeamPage';
+import { CareersPage } from './pages/CareersPage';
+import { PressPage } from './pages/PressPage';
+import { PartnerPage } from './pages/PartnerPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsPage } from './pages/TermsPage';
+import { RefundPolicyPage } from './pages/RefundPolicyPage';
+import { SitemapPage } from './pages/SitemapPage';
 
-type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation' | 'transportation' | 'hire' | 'doctor' | 'dinner' | 'hire-booking' | 'doctor-booking' | 'dinner-booking' | 'airport-booking' | 'transportation-combined';
+type Page = 'home' | 'book' | 'track' | 'login' | 'signup' | 'dashboard' | 'booking-confirmation' | 'transportation' | 'hire' | 'doctor' | 'dinner' | 'hire-booking' | 'doctor-booking' | 'dinner-booking' | 'airport-booking' | 'transportation-combined' | 'about' | 'team' | 'careers' | 'press' | 'partner' | 'privacy' | 'terms' | 'refund' | 'sitemap';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -51,6 +60,24 @@ function App() {
         return <LoginPage onNavigate={navigate} />;
       case 'signup':
         return <SignupPage onNavigate={navigate} />;
+      case 'about':
+        return <AboutPage />;
+      case 'team':
+        return <TeamPage />;
+      case 'careers':
+        return <CareersPage />;
+      case 'press':
+        return <PressPage />;
+      case 'partner':
+        return <PartnerPage />;
+      case 'privacy':
+        return <PrivacyPolicyPage />;
+      case 'terms':
+        return <TermsPage />;
+      case 'refund':
+        return <RefundPolicyPage />;
+      case 'sitemap':
+        return <SitemapPage />;
       default:
         return <HomePage onNavigate={navigate} />;
     }

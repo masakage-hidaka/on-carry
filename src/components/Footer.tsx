@@ -1,7 +1,11 @@
 import { MapPin, Phone, Mail, MessageCircle, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   const { language } = useLanguage();
 
   const content = {
@@ -10,31 +14,31 @@ export function Footer() {
       services: {
         title: 'サービス',
         items: [
-          '荷物預かり',
-          'ハイヤーサービス',
-          'トラベルドクター',
-          'ディナーコンパニオン',
-          '観光案内',
-          'チケット予約'
+          { name: '荷物預かり', route: 'book' },
+          { name: 'ハイヤーサービス', route: 'hire' },
+          { name: 'トラベルドクター', route: 'doctor' },
+          { name: 'ディナーコンパニオン', route: 'dinner' },
+          { name: '観光案内', route: 'home' },
+          { name: 'チケット予約', route: 'book' }
         ]
       },
       company: {
         title: '会社情報',
         items: [
-          'OnCarryについて',
-          'チーム紹介',
-          '採用情報',
-          'プレス・メディア',
-          'パートナー募集'
+          { name: 'OnCarryについて', route: 'about' },
+          { name: 'チーム紹介', route: 'team' },
+          { name: '採用情報', route: 'careers' },
+          { name: 'プレス・メディア', route: 'press' },
+          { name: 'パートナー募集', route: 'partner' }
         ]
       },
       legal: {
         title: '法的情報',
         items: [
-          'プライバシーポリシー',
-          '利用規約',
-          '返金ポリシー',
-          'サイトマップ'
+          { name: 'プライバシーポリシー', route: 'privacy' },
+          { name: '利用規約', route: 'terms' },
+          { name: '返金ポリシー', route: 'refund' },
+          { name: 'サイトマップ', route: 'sitemap' }
         ]
       },
       contact: {
@@ -66,31 +70,31 @@ export function Footer() {
       services: {
         title: 'Services',
         items: [
-          'Luggage Storage',
-          'Travel Hire',
-          'Travel Doctor',
-          'Dinner Companion',
-          'Tourist Info',
-          'Ticket Booking'
+          { name: 'Luggage Storage', route: 'book' },
+          { name: 'Travel Hire', route: 'hire' },
+          { name: 'Travel Doctor', route: 'doctor' },
+          { name: 'Dinner Companion', route: 'dinner' },
+          { name: 'Tourist Info', route: 'home' },
+          { name: 'Ticket Booking', route: 'book' }
         ]
       },
       company: {
         title: 'Company',
         items: [
-          'About OnCarry',
-          'Our Team',
-          'Careers',
-          'Press & Media',
-          'Partner with Us'
+          { name: 'About OnCarry', route: 'about' },
+          { name: 'Our Team', route: 'team' },
+          { name: 'Careers', route: 'careers' },
+          { name: 'Press & Media', route: 'press' },
+          { name: 'Partner with Us', route: 'partner' }
         ]
       },
       legal: {
         title: 'Legal',
         items: [
-          'Privacy Policy',
-          'Terms of Service',
-          'Refund Policy',
-          'Sitemap'
+          { name: 'Privacy Policy', route: 'privacy' },
+          { name: 'Terms of Service', route: 'terms' },
+          { name: 'Refund Policy', route: 'refund' },
+          { name: 'Sitemap', route: 'sitemap' }
         ]
       },
       contact: {
@@ -140,9 +144,12 @@ export function Footer() {
             <ul className="space-y-3">
               {t.services.items.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-orange-400 transition-colors">
-                    {item}
-                  </a>
+                  <button
+                    onClick={() => onNavigate?.(item.route)}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -154,9 +161,12 @@ export function Footer() {
             <ul className="space-y-3">
               {t.company.items.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-orange-400 transition-colors">
-                    {item}
-                  </a>
+                  <button
+                    onClick={() => onNavigate?.(item.route)}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -168,9 +178,12 @@ export function Footer() {
             <ul className="space-y-3">
               {t.legal.items.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-orange-400 transition-colors">
-                    {item}
-                  </a>
+                  <button
+                    onClick={() => onNavigate?.(item.route)}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ))}
             </ul>
