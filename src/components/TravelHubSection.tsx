@@ -258,8 +258,8 @@ export function TravelHubSection() {
 
           <div className="mt-8">
             <img
-              src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Japanese interior"
+              src="https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Osaka Dotonbori street scene"
               className="w-full h-80 object-cover rounded-2xl shadow-2xl"
             />
           </div>
