@@ -5,6 +5,7 @@ import { TravelHubSection } from '../components/TravelHubSection';
 import { HeroSection } from '../components/HeroSection';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 import { PricingSection } from '../components/PricingSection';
+import { ServiceEcosystem } from '../components/ServiceEcosystem';
 import { Footer } from '../components/Footer';
 
 interface HomePageProps {
@@ -101,6 +102,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
     <div className="min-h-screen bg-white">
       {/* Hero Section - Luggage Storage Focus */}
       <HeroSection onBookNow={() => onNavigate('book')} />
+
+      {/* Service Ecosystem - Overview of all 5 services */}
+      <ServiceEcosystem onNavigate={onNavigate} />
 
       {/* How It Works */}
       <HowItWorksSection />
