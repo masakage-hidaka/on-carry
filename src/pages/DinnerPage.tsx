@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { UtensilsCrossed, Clock, Users, MapPin, Calendar, Star, Camera, Heart, Sparkles, ChevronRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
+import { bookingService } from '../lib/bookingService';
 
 interface DinnerPageProps {
   onNavigate: (page: string, params?: Record<string, string>) => void;
@@ -242,10 +243,58 @@ export function DinnerPage({ onNavigate }: DinnerPageProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const bookingNumber = `DIN${Date.now().toString().slice(-8)}`;
-    onNavigate('booking-confirmation', { bookingNumber });
+    setIsSubmitting(true);
+
+    try {
+      if (!selectedTour) {
+        throw new Error('ツアーが選択されていません');
+      }
+
+      const timeSlotMap: Record<TimeSlot, string> = {
+        lunch: '12:00:00',
+        afternoon: '14:00:00',
+        evening: '17:00:00',
+        night: '18:00:00',
+      };
+
+      const scheduledTime = formData.timeSlot ? timeSlotMap[formData.timeSlot] : '12:00:00';
+      const scheduledDatetime = `${formData.date}T${scheduledTime}`;
+
+      const booking = await bookingService.createBooking({
+        serviceType: 'dinner',
+        customerName: formData.customerName,
+        customerEmail: formData.customerEmail,
+        customerPhone: formData.customerPhone,
+        customerId: user?.id,
+        bookingData: {
+          tourType: selectedTour.id,
+          numGuests: formData.numGuests,
+          timeSlot: formData.timeSlot,
+          dietaryRestrictions: formData.dietaryRestrictions,
+          specialRequests: formData.specialRequests,
+          scheduledDatetime,
+          meetingPoint: 'Travel Hub Namba',
+          budgetRange: selectedTour.pricePerPerson >= 15000 ? 'premium' : 'mid_range',
+        },
+        totalAmount: selectedTour.pricePerPerson * formData.numGuests,
+        scheduledDatetime,
+        specialRequests: formData.specialRequests,
+      });
+
+      onNavigate('booking-confirmation', { bookingNumber: booking.booking_number });
+    } catch (error) {
+      console.error('Booking failed:', error);
+      alert(language === 'ja'
+        ? '予約に失敗しました。もう一度お試しください。'
+        : 'Booking failed. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (step === 'form' && selectedTour) {
@@ -422,9 +471,13 @@ export function DinnerPage({ onNavigate }: DinnerPageProps) {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  {t.submit}
+                  {isSubmitting
+                    ? (language === 'ja' ? '予約処理中...' : 'Processing...')
+                    : t.submit
+                  }
                 </button>
               </form>
             </div>
