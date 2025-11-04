@@ -284,73 +284,134 @@ export function TravelHubSection() {
   const t = content[language];
 
   return (
-    <section className="bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
+    <section className="relative bg-gradient-to-b from-red-50 via-amber-50 to-orange-50 py-20 px-4 overflow-hidden">
+      {/* Traditional Japanese Pattern Background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(45deg, #8B4513 0px, #8B4513 1px, transparent 1px, transparent 10px),
+                           repeating-linear-gradient(-45deg, #8B4513 0px, #8B4513 1px, transparent 1px, transparent 10px)`,
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative">
+        {/* Hero Section with Japanese Aesthetics */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-full mb-6 font-semibold">
-            <Calendar className="w-4 h-4" />
-            {t.openingDate}
+          {/* Cherry Blossom Accent */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white rounded-sm mb-6 font-bold shadow-lg border-2 border-amber-400">
+                <Calendar className="w-5 h-5" />
+                {t.openingDate}
+              </div>
+              {/* Gold accent lines */}
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-amber-400"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-amber-400"></div>
+              <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-amber-400"></div>
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-amber-400"></div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-900 via-amber-900 to-red-900 bg-clip-text text-transparent" style={{ fontFamily: 'serif' }}>
             {t.heroTitle}
           </h1>
-          <p className="text-2xl md:text-3xl text-amber-900 font-medium mb-4">
+          <div className="h-1 w-32 bg-gradient-to-r from-red-600 to-amber-600 mx-auto mb-6"></div>
+          <p className="text-2xl md:text-3xl text-red-900 font-semibold mb-4" style={{ fontFamily: 'serif' }}>
             {t.heroSubtitle}
           </p>
-          <p className="text-xl text-amber-800">
+          <p className="text-xl text-amber-900 italic">
             {t.tagline}
           </p>
         </div>
 
-        {/* Mission Section */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12 border-4 border-amber-200">
-          <div className="flex items-center gap-3 mb-6">
-            <Heart className="w-8 h-8 text-red-500" />
-            <h2 className="text-3xl font-bold text-gray-900">{t.mission.title}</h2>
-          </div>
-          <h3 className="text-2xl font-semibold text-amber-800 mb-4">{t.mission.subtitle}</h3>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            {t.mission.description}
-          </p>
-          <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-6 border-l-4 border-amber-600">
-            <p className="text-gray-800 italic text-lg mb-3">
-              {t.mission.founderQuote}
+        {/* Mission Section - Japanese Style */}
+        <div className="relative bg-gradient-to-br from-white via-red-50 to-amber-50 shadow-2xl p-8 md:p-12 mb-12 border-4 border-red-200">
+          {/* Corner decorations */}
+          <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-red-600"></div>
+          <div className="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-red-600"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 border-b-4 border-l-4 border-red-600"></div>
+          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-red-600"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-red-600"></div>
+              <Heart className="w-8 h-8 text-red-600" />
+              <h2 className="text-3xl font-bold text-red-900" style={{ fontFamily: 'serif' }}>{t.mission.title}</h2>
+              <Heart className="w-8 h-8 text-red-600" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-red-600"></div>
+            </div>
+            <h3 className="text-2xl font-semibold text-center text-amber-900 mb-6" style={{ fontFamily: 'serif' }}>{t.mission.subtitle}</h3>
+            <p className="text-lg text-gray-800 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+              {t.mission.description}
             </p>
-            <p className="text-right text-amber-900 font-semibold">
-              — {t.mission.founderName}
-            </p>
+            <div className="relative bg-gradient-to-r from-red-100 via-amber-100 to-red-100 p-8 border-t-4 border-b-4 border-red-600">
+              <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-red-600 rotate-45"></div>
+              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-red-600 rotate-45"></div>
+              <p className="text-gray-900 italic text-lg mb-4 text-center" style={{ fontFamily: 'serif' }}>
+                {t.mission.founderQuote}
+              </p>
+              <p className="text-center text-red-900 font-bold text-xl">
+                — {t.mission.founderName}
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Design Section */}
-        <div className="bg-gradient-to-br from-amber-900 to-orange-900 rounded-3xl shadow-2xl p-8 md:p-12 mb-12 text-white">
-          <div className="flex items-center gap-3 mb-6">
-            <Sparkles className="w-8 h-8" />
-            <h2 className="text-3xl font-bold">{t.design.title}</h2>
+        {/* Design Section - Deep Japanese Aesthetic */}
+        <div className="relative bg-gradient-to-br from-red-950 via-red-900 to-amber-950 shadow-2xl p-8 md:p-12 mb-12 text-white overflow-hidden">
+          {/* Japanese wave pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <svg className="w-full h-full" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="currentColor"/>
+              <path d="M0,350 Q300,250 600,350 T1200,350 L1200,600 L0,600 Z" fill="currentColor" opacity="0.5"/>
+            </svg>
           </div>
-          <p className="text-xl mb-8 text-amber-100">{t.design.subtitle}</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {t.design.features.map((feature, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20">
-                <h4 className="text-xl font-bold mb-3 text-amber-200">{feature.title}</h4>
-                <p className="text-amber-50">{feature.desc}</p>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <div className="inline-block">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <Sparkles className="w-8 h-8 text-amber-400" />
+                  <h2 className="text-4xl font-bold" style={{ fontFamily: 'serif' }}>{t.design.title}</h2>
+                  <Sparkles className="w-8 h-8 text-amber-400" />
+                </div>
+                <div className="h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
               </div>
-            ))}
-          </div>
+              <p className="text-2xl mt-6 text-amber-200" style={{ fontFamily: 'serif' }}>{t.design.subtitle}</p>
+            </div>
 
-          <div className="mt-8 grid md:grid-cols-2 gap-6">
-            <img
-              src="https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Traditional Japanese interior with wooden elements"
-              className="w-full h-80 object-cover rounded-2xl shadow-2xl"
-            />
-            <img
-              src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Japanese room with tatami and shoji screens"
-              className="w-full h-80 object-cover rounded-2xl shadow-2xl"
-            />
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {t.design.features.map((feature, index) => (
+                <div key={index} className="relative bg-gradient-to-br from-red-800/50 to-amber-900/50 backdrop-blur p-6 border-2 border-amber-600/50 group hover:border-amber-400 transition-all">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-400"></div>
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-400"></div>
+                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-400"></div>
+                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-400"></div>
+
+                  <h4 className="text-2xl font-bold mb-3 text-amber-300" style={{ fontFamily: 'serif' }}>{feature.title}</h4>
+                  <p className="text-amber-50 leading-relaxed">{feature.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative overflow-hidden border-4 border-amber-600 shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Traditional Japanese interior with wooden elements"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 border-8 border-double border-amber-400/30 pointer-events-none"></div>
+              </div>
+              <div className="relative overflow-hidden border-4 border-amber-600 shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Japanese room with tatami and shoji screens"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 border-8 border-double border-amber-400/30 pointer-events-none"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -391,23 +452,31 @@ export function TravelHubSection() {
               const IconComponent = icons[exp.icon as keyof typeof icons];
 
               return (
-                <div key={index} className="group bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-amber-100 hover:border-amber-300 transition-all hover:shadow-2xl">
+                <div key={index} className="relative group bg-gradient-to-br from-white via-red-50 to-amber-50 shadow-xl overflow-hidden border-4 border-red-300 hover:border-red-500 transition-all hover:shadow-2xl">
+                  {/* Traditional corner decorations */}
+                  <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-amber-600 z-20"></div>
+                  <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-amber-600 z-20"></div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-amber-600 z-20"></div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-amber-600 z-20"></div>
+
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src={exp.image}
                       alt={exp.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-red-900/40 to-transparent"></div>
+                    <div className="absolute inset-0 border-4 border-double border-amber-400/40"></div>
                     <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                      <div className="bg-amber-500 rounded-full p-3">
-                        <IconComponent className="w-6 h-6 text-white" />
+                      <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 border-2 border-amber-400">
+                        <IconComponent className="w-6 h-6 text-amber-200" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
+                      <h3 className="text-2xl font-bold text-white drop-shadow-lg" style={{ fontFamily: 'serif' }}>{exp.title}</h3>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <p className="text-gray-700 leading-relaxed">{exp.desc}</p>
+                  <div className="p-6 relative">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-1 bg-gradient-to-r from-red-600 to-amber-600"></div>
+                    <p className="text-gray-800 leading-relaxed pt-4" style={{ fontFamily: 'serif' }}>{exp.desc}</p>
                   </div>
                 </div>
               );
@@ -415,25 +484,50 @@ export function TravelHubSection() {
           </div>
         </div>
 
-        {/* Atmosphere Section - NEW */}
-        <div className="bg-gradient-to-br from-red-900 via-amber-900 to-orange-900 rounded-3xl shadow-2xl p-8 md:p-12 mb-12 text-white">
-          <h2 className="text-3xl font-bold text-center mb-8">{t.atmosphere.title}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {t.atmosphere.items.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20 h-full">
-                  <div className="text-4xl mb-3">
-                    {index === 0 && '👁️'}
-                    {index === 1 && '👋'}
-                    {index === 2 && '👃'}
-                    {index === 3 && '👂'}
-                    {index === 4 && '👅'}
-                  </div>
-                  <h4 className="text-lg font-bold mb-2 text-amber-200">{item.sense}</h4>
-                  <p className="text-sm text-amber-50">{item.desc}</p>
+        {/* Atmosphere Section - Traditional Japanese Style */}
+        <div className="relative bg-gradient-to-br from-red-950 via-red-900 to-amber-950 shadow-2xl p-8 md:p-12 mb-12 text-white overflow-hidden">
+          {/* Decorative pattern */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+
+          <div className="relative z-10">
+            <div className="text-center mb-10">
+              <div className="inline-block">
+                <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'serif' }}>{t.atmosphere.title}</h2>
+                <div className="flex justify-center gap-2">
+                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
+                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
+                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {t.atmosphere.items.map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="relative bg-gradient-to-br from-red-800/60 to-amber-900/60 backdrop-blur p-6 border-2 border-amber-600/50 h-full group hover:border-amber-400 transition-all">
+                    {/* Corner decorations */}
+                    <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-400"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-400"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-400"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-400"></div>
+
+                    <div className="text-5xl mb-4">
+                      {index === 0 && '👁️'}
+                      {index === 1 && '👋'}
+                      {index === 2 && '👃'}
+                      {index === 3 && '👂'}
+                      {index === 4 && '👅'}
+                    </div>
+                    <h4 className="text-xl font-bold mb-3 text-amber-300" style={{ fontFamily: 'serif' }}>{item.sense}</h4>
+                    <div className="w-12 h-0.5 bg-amber-400 mx-auto mb-3"></div>
+                    <p className="text-sm text-amber-100 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -504,12 +598,33 @@ export function TravelHubSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl shadow-2xl p-12 text-white">
-          <p className="text-2xl mb-6">{t.cta.subtitle}</p>
-          <button className="bg-white text-amber-600 font-bold text-xl py-4 px-12 rounded-full hover:bg-amber-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
-            {t.cta.button}
-          </button>
+        {/* CTA - Traditional Japanese Style */}
+        <div className="relative text-center bg-gradient-to-r from-red-900 via-red-800 to-red-900 shadow-2xl p-12 text-white overflow-hidden border-4 border-amber-600">
+          {/* Corner decorations */}
+          <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-amber-400"></div>
+          <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-amber-400"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-amber-400"></div>
+          <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-amber-400"></div>
+
+          {/* Decorative elements */}
+          <div className="absolute top-1/2 left-8 transform -translate-y-1/2 text-6xl opacity-20">🌸</div>
+          <div className="absolute top-1/2 right-8 transform -translate-y-1/2 text-6xl opacity-20">🌸</div>
+
+          <div className="relative z-10">
+            <p className="text-3xl mb-8 text-amber-100" style={{ fontFamily: 'serif' }}>{t.cta.subtitle}</p>
+            <div className="flex justify-center gap-3 mb-8">
+              <div className="w-4 h-4 bg-amber-400 rotate-45"></div>
+              <div className="w-4 h-4 bg-amber-400 rotate-45"></div>
+              <div className="w-4 h-4 bg-amber-400 rotate-45"></div>
+            </div>
+            <button className="relative bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-2xl py-5 px-16 border-4 border-amber-400 hover:from-amber-400 hover:to-amber-500 transition-all shadow-2xl hover:shadow-amber-500/50 transform hover:scale-105 group">
+              <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-white"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-white"></div>
+              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-white"></div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-white"></div>
+              <span style={{ fontFamily: 'serif' }}>{t.cta.button}</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
