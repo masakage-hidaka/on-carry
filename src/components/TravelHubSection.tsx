@@ -340,10 +340,15 @@ export function TravelHubSection() {
             ))}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 grid md:grid-cols-2 gap-6">
             <img
-              src="https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Osaka Dotonbori at night"
+              src="https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Traditional Japanese interior with wooden elements"
+              className="w-full h-80 object-cover rounded-2xl shadow-2xl"
+            />
+            <img
+              src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Japanese room with tatami and shoji screens"
               className="w-full h-80 object-cover rounded-2xl shadow-2xl"
             />
           </div>
