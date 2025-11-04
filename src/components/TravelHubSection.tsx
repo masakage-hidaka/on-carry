@@ -80,25 +80,25 @@ export function TravelHubSection() {
             icon: 'map',
             title: '旅行プランニングラウンジ',
             desc: '和紙の地図や季節のガイドブックを眺めながら、地元スタッフと一緒に京都・奈良・神戸への旅程を相談。茶室風の個室スペースでゆっくりプランニング。',
-            image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/161212/kyoto-japan-temple-flowers-161212.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'coffee',
             title: '和カフェスペース',
             desc: '抹茶ラテや季節の和菓子を楽しめる軽飲食コーナー。木製カウンターに座り、障子越しの柔らかな光を浴びながら、旅の合間にひと息。',
-            image: 'https://images.pexels.com/photos/5591663/pexels-photo-5591663.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'camera',
             title: '日本文化体験コーナー',
             desc: '浴衣試着・茶道体験・書道・折り紙など、日本の伝統文化を気軽に体験。SNS映えする写真撮影スポットも完備。',
-            image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'luggage',
             title: 'プレミアム荷物預かり',
             desc: '伝統工芸の木製ロッカーで大切な荷物を保管。受付では季節の生け花がお出迎え。手ぶらで大阪を満喫できます。',
-            image: 'https://images.pexels.com/photos/6069748/pexels-photo-6069748.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=1200'
           }
         ]
       },
@@ -217,25 +217,25 @@ export function TravelHubSection() {
             icon: 'map',
             title: 'Travel Planning Lounge',
             desc: 'Plan your trips to Kyoto, Nara & Kobe with local staff using washi paper maps and seasonal guidebooks in a tea room-style private space.',
-            image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/161212/kyoto-japan-temple-flowers-161212.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'coffee',
             title: 'Japanese Café Space',
             desc: 'Enjoy matcha lattes and seasonal wagashi at our light dining counter. Relax on wooden seats bathed in soft light through shoji screens.',
-            image: 'https://images.pexels.com/photos/5591663/pexels-photo-5591663.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'camera',
             title: 'Cultural Experience Corner',
             desc: 'Try yukata fitting, tea ceremony, calligraphy, origami and more. Instagram-worthy photo spots included.',
-            image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg?auto=compress&cs=tinysrgb&w=1200'
           },
           {
             icon: 'luggage',
             title: 'Premium Luggage Storage',
             desc: 'Store your belongings in traditional wooden craft lockers. Greeted by seasonal ikebana at reception. Explore Osaka hands-free.',
-            image: 'https://images.pexels.com/photos/6069748/pexels-photo-6069748.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: 'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=1200'
           }
         ]
       },
@@ -395,21 +395,35 @@ export function TravelHubSection() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="relative overflow-hidden border-4 border-amber-600 shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Traditional Japanese interior with wooden elements"
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute inset-0 border-8 border-double border-amber-400/30 pointer-events-none"></div>
+              <div className="relative overflow-hidden group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 opacity-75 blur group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative">
+                  <img
+                    src="https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Traditional Japanese interior with wooden elements"
+                    className="w-full h-80 object-cover border-4 border-amber-400"
+                  />
+                  <div className="absolute inset-0 border-8 border-double border-amber-300/40 pointer-events-none"></div>
+                  <div className="absolute top-2 left-2 w-8 h-8 border-t-4 border-l-4 border-white"></div>
+                  <div className="absolute top-2 right-2 w-8 h-8 border-t-4 border-r-4 border-white"></div>
+                  <div className="absolute bottom-2 left-2 w-8 h-8 border-b-4 border-l-4 border-white"></div>
+                  <div className="absolute bottom-2 right-2 w-8 h-8 border-b-4 border-r-4 border-white"></div>
+                </div>
               </div>
-              <div className="relative overflow-hidden border-4 border-amber-600 shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Japanese room with tatami and shoji screens"
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute inset-0 border-8 border-double border-amber-400/30 pointer-events-none"></div>
+              <div className="relative overflow-hidden group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 opacity-75 blur group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative">
+                  <img
+                    src="https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Japanese room with tatami and shoji screens"
+                    className="w-full h-80 object-cover border-4 border-amber-400"
+                  />
+                  <div className="absolute inset-0 border-8 border-double border-amber-300/40 pointer-events-none"></div>
+                  <div className="absolute top-2 left-2 w-8 h-8 border-t-4 border-l-4 border-white"></div>
+                  <div className="absolute top-2 right-2 w-8 h-8 border-t-4 border-r-4 border-white"></div>
+                  <div className="absolute bottom-2 left-2 w-8 h-8 border-b-4 border-l-4 border-white"></div>
+                  <div className="absolute bottom-2 right-2 w-8 h-8 border-b-4 border-r-4 border-white"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -452,31 +466,55 @@ export function TravelHubSection() {
               const IconComponent = icons[exp.icon as keyof typeof icons];
 
               return (
-                <div key={index} className="relative group bg-gradient-to-br from-white via-red-50 to-amber-50 shadow-xl overflow-hidden border-4 border-red-300 hover:border-red-500 transition-all hover:shadow-2xl">
-                  {/* Traditional corner decorations */}
-                  <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-amber-600 z-20"></div>
-                  <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-amber-600 z-20"></div>
-                  <div className="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-amber-600 z-20"></div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-amber-600 z-20"></div>
+                <div key={index} className="relative group overflow-hidden">
+                  {/* Glowing border effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-amber-500 to-red-600 opacity-75 blur group-hover:opacity-100 transition duration-500"></div>
 
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={exp.image}
-                      alt={exp.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-red-900/40 to-transparent"></div>
-                    <div className="absolute inset-0 border-4 border-double border-amber-400/40"></div>
-                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                      <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 border-2 border-amber-400">
-                        <IconComponent className="w-6 h-6 text-amber-200" />
+                  <div className="relative bg-gradient-to-br from-gray-900 via-red-950 to-black overflow-hidden">
+                    {/* Decorative corner pieces */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t-[6px] border-l-[6px] border-amber-400 z-20 opacity-80"></div>
+                    <div className="absolute top-0 right-0 w-16 h-16 border-t-[6px] border-r-[6px] border-amber-400 z-20 opacity-80"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-[6px] border-l-[6px] border-amber-400 z-20 opacity-80"></div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-[6px] border-r-[6px] border-amber-400 z-20 opacity-80"></div>
+
+                    <div className="relative h-72 overflow-hidden">
+                      <img
+                        src={exp.image}
+                        alt={exp.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                      {/* Decorative lines on image */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+
+                      <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-amber-400 blur-lg opacity-50"></div>
+                          <div className="relative bg-gradient-to-br from-red-800 to-red-950 p-4 border-2 border-amber-400">
+                            <IconComponent className="w-7 h-7 text-amber-300" />
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-white drop-shadow-2xl tracking-wide" style={{ fontFamily: 'serif' }}>
+                            {exp.title}
+                          </h3>
+                        </div>
                       </div>
-                      <h3 className="text-2xl font-bold text-white drop-shadow-lg" style={{ fontFamily: 'serif' }}>{exp.title}</h3>
                     </div>
-                  </div>
-                  <div className="p-6 relative">
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-1 bg-gradient-to-r from-red-600 to-amber-600"></div>
-                    <p className="text-gray-800 leading-relaxed pt-4" style={{ fontFamily: 'serif' }}>{exp.desc}</p>
+
+                    <div className="relative bg-gradient-to-br from-gray-900 via-red-950 to-black p-6 border-t-2 border-amber-400/30">
+                      {/* Decorative accent */}
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div className="w-20 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-amber-400 rotate-45"></div>
+                      </div>
+
+                      <p className="text-gray-300 leading-relaxed pt-2 text-base" style={{ fontFamily: 'serif' }}>
+                        {exp.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );
@@ -493,37 +531,53 @@ export function TravelHubSection() {
           }}></div>
 
           <div className="relative z-10">
-            <div className="text-center mb-10">
-              <div className="inline-block">
-                <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'serif' }}>{t.atmosphere.title}</h2>
-                <div className="flex justify-center gap-2">
-                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
-                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
-                  <div className="w-3 h-3 bg-amber-400 rotate-45"></div>
+            <div className="text-center mb-12">
+              <div className="inline-block relative">
+                <div className="absolute -inset-4 bg-amber-400/20 blur-xl"></div>
+                <h2 className="relative text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200" style={{ fontFamily: 'serif' }}>
+                  {t.atmosphere.title}
+                </h2>
+                <div className="flex justify-center gap-3">
+                  <div className="w-4 h-4 bg-amber-400 rotate-45 shadow-lg shadow-amber-400/50"></div>
+                  <div className="w-4 h-4 bg-amber-400 rotate-45 shadow-lg shadow-amber-400/50"></div>
+                  <div className="w-4 h-4 bg-amber-400 rotate-45 shadow-lg shadow-amber-400/50"></div>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
               {t.atmosphere.items.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative bg-gradient-to-br from-red-800/60 to-amber-900/60 backdrop-blur p-6 border-2 border-amber-600/50 h-full group hover:border-amber-400 transition-all">
-                    {/* Corner decorations */}
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-400"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-400"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-400"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-400"></div>
+                <div key={index} className="text-center group">
+                  <div className="relative">
+                    {/* Glow effect */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-600 to-red-600 opacity-50 blur group-hover:opacity-75 transition duration-300"></div>
 
-                    <div className="text-5xl mb-4">
-                      {index === 0 && '👁️'}
-                      {index === 1 && '👋'}
-                      {index === 2 && '👃'}
-                      {index === 3 && '👂'}
-                      {index === 4 && '👅'}
+                    <div className="relative bg-gradient-to-br from-gray-900 via-red-950 to-black p-6 h-full border-2 border-amber-500/50 group-hover:border-amber-400 transition-all">
+                      {/* Corner decorations */}
+                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-400"></div>
+                      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-400"></div>
+                      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-400"></div>
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-400"></div>
+
+                      <div className="relative mb-4">
+                        <div className="absolute inset-0 bg-amber-400/30 blur-xl"></div>
+                        <div className="relative text-6xl">
+                          {index === 0 && '👁️'}
+                          {index === 1 && '👋'}
+                          {index === 2 && '👃'}
+                          {index === 3 && '👂'}
+                          {index === 4 && '👅'}
+                        </div>
+                      </div>
+
+                      <h4 className="text-xl font-bold mb-3 text-amber-300" style={{ fontFamily: 'serif' }}>
+                        {item.sense}
+                      </h4>
+                      <div className="w-16 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-3"></div>
+                      <p className="text-sm text-gray-300 leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
-                    <h4 className="text-xl font-bold mb-3 text-amber-300" style={{ fontFamily: 'serif' }}>{item.sense}</h4>
-                    <div className="w-12 h-0.5 bg-amber-400 mx-auto mb-3"></div>
-                    <p className="text-sm text-amber-100 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
