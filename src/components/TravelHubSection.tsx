@@ -1,4 +1,4 @@
-import { MapPin, Clock, Heart, Package, Info, Sparkles, Calendar } from 'lucide-react';
+import { MapPin, Clock, Heart, Package, Info, Sparkles, Calendar, Coffee, Map, Users, Luggage, Camera, UtensilsCrossed } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export function TravelHubSection() {
@@ -72,8 +72,50 @@ export function TravelHubSection() {
         ]
       },
 
+      experiences: {
+        title: 'Travel Hub Nambaで体験できること',
+        subtitle: '日本の美しさと心地よさを、五感で味わう空間',
+        items: [
+          {
+            icon: 'map',
+            title: '旅行プランニングラウンジ',
+            desc: '和紙の地図や季節のガイドブックを眺めながら、地元スタッフと一緒に京都・奈良・神戸への旅程を相談。茶室風の個室スペースでゆっくりプランニング。',
+            image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'coffee',
+            title: '和カフェスペース',
+            desc: '抹茶ラテや季節の和菓子を楽しめる軽飲食コーナー。木製カウンターに座り、障子越しの柔らかな光を浴びながら、旅の合間にひと息。',
+            image: 'https://images.pexels.com/photos/5591663/pexels-photo-5591663.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'camera',
+            title: '日本文化体験コーナー',
+            desc: '浴衣試着・茶道体験・書道・折り紙など、日本の伝統文化を気軽に体験。SNS映えする写真撮影スポットも完備。',
+            image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'luggage',
+            title: 'プレミアム荷物預かり',
+            desc: '伝統工芸の木製ロッカーで大切な荷物を保管。受付では季節の生け花がお出迎え。手ぶらで大阪を満喫できます。',
+            image: 'https://images.pexels.com/photos/6069748/pexels-photo-6069748.jpeg?auto=compress&cs=tinysrgb&w=800'
+          }
+        ]
+      },
+
+      atmosphere: {
+        title: '五感で感じる「和」の空間',
+        items: [
+          { sense: '視覚', desc: '檜の格子、和紙照明、季節の生け花' },
+          { sense: '触覚', desc: '天然木のカウンター、畳の座席' },
+          { sense: '嗅覚', desc: '白檀のお香、挽きたての抹茶の香り' },
+          { sense: '聴覚', desc: '水琴窟の音、静かな琴の調べ' },
+          { sense: '味覚', desc: '職人が作る和菓子、本格抹茶' }
+        ]
+      },
+
       facilities: {
-        title: '付加価値サービス',
+        title: '充実の館内設備',
         items: [
           'ドレッサースペース：アンティークの鏡台で身支度',
           '休憩スペース：木のぬくもりを感じる空間',
@@ -167,8 +209,50 @@ export function TravelHubSection() {
         ]
       },
 
+      experiences: {
+        title: 'Experience at Travel Hub Namba',
+        subtitle: 'Engage all five senses in the beauty and comfort of Japan',
+        items: [
+          {
+            icon: 'map',
+            title: 'Travel Planning Lounge',
+            desc: 'Plan your trips to Kyoto, Nara & Kobe with local staff using washi paper maps and seasonal guidebooks in a tea room-style private space.',
+            image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'coffee',
+            title: 'Japanese Café Space',
+            desc: 'Enjoy matcha lattes and seasonal wagashi at our light dining counter. Relax on wooden seats bathed in soft light through shoji screens.',
+            image: 'https://images.pexels.com/photos/5591663/pexels-photo-5591663.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'camera',
+            title: 'Cultural Experience Corner',
+            desc: 'Try yukata fitting, tea ceremony, calligraphy, origami and more. Instagram-worthy photo spots included.',
+            image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800'
+          },
+          {
+            icon: 'luggage',
+            title: 'Premium Luggage Storage',
+            desc: 'Store your belongings in traditional wooden craft lockers. Greeted by seasonal ikebana at reception. Explore Osaka hands-free.',
+            image: 'https://images.pexels.com/photos/6069748/pexels-photo-6069748.jpeg?auto=compress&cs=tinysrgb&w=800'
+          }
+        ]
+      },
+
+      atmosphere: {
+        title: 'Experience "Wa" Through Five Senses',
+        items: [
+          { sense: 'Sight', desc: 'Hinoki lattice, washi lighting, seasonal ikebana' },
+          { sense: 'Touch', desc: 'Natural wood counters, tatami seating' },
+          { sense: 'Smell', desc: 'Sandalwood incense, fresh matcha aroma' },
+          { sense: 'Sound', desc: 'Suikinkutsu water drops, gentle koto music' },
+          { sense: 'Taste', desc: 'Artisan wagashi, authentic matcha' }
+        ]
+      },
+
       facilities: {
-        title: 'Additional Amenities',
+        title: 'Complete Facilities',
         items: [
           'Dressing Space: Antique vanity mirrors',
           'Rest Area: Feel the warmth of wood',
@@ -289,50 +373,112 @@ export function TravelHubSection() {
           </div>
         </div>
 
+        {/* Experiences Section - NEW */}
+        <div className="mb-12">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">{t.experiences.title}</h2>
+            <p className="text-xl text-amber-800">{t.experiences.subtitle}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {t.experiences.items.map((exp, index) => {
+              const icons = { map: Map, coffee: Coffee, camera: Camera, luggage: Luggage };
+              const IconComponent = icons[exp.icon as keyof typeof icons];
+
+              return (
+                <div key={index} className="group bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-amber-100 hover:border-amber-300 transition-all hover:shadow-2xl">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={exp.image}
+                      alt={exp.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                      <div className="bg-amber-500 rounded-full p-3">
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-700 leading-relaxed">{exp.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Atmosphere Section - NEW */}
+        <div className="bg-gradient-to-br from-red-900 via-amber-900 to-orange-900 rounded-3xl shadow-2xl p-8 md:p-12 mb-12 text-white">
+          <h2 className="text-3xl font-bold text-center mb-8">{t.atmosphere.title}</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {t.atmosphere.items.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20 h-full">
+                  <div className="text-4xl mb-3">
+                    {index === 0 && '👁️'}
+                    {index === 1 && '👋'}
+                    {index === 2 && '👃'}
+                    {index === 3 && '👂'}
+                    {index === 4 && '👅'}
+                  </div>
+                  <h4 className="text-lg font-bold mb-2 text-amber-200">{item.sense}</h4>
+                  <p className="text-sm text-amber-50">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Facilities & Info Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Facilities */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-amber-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.facilities.title}</h3>
-            <ul className="space-y-3">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-xl p-8 border-2 border-amber-200">
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles className="w-6 h-6 text-amber-600" />
+              <h3 className="text-2xl font-bold text-gray-900">{t.facilities.title}</h3>
+            </div>
+            <ul className="space-y-4">
               {t.facilities.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-gray-700">
-                  <span className="text-amber-600 font-bold">✓</span>
-                  <span>{item}</span>
+                <li key={index} className="flex items-start gap-3 text-gray-700 bg-white rounded-lg p-4 shadow-sm">
+                  <span className="text-amber-600 font-bold text-xl">✓</span>
+                  <span className="pt-0.5">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Info */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-amber-100">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow-xl p-8 border-2 border-amber-200">
             <div className="flex items-center gap-2 mb-6">
               <Info className="w-6 h-6 text-amber-600" />
               <h3 className="text-2xl font-bold text-gray-900">{t.info.title}</h3>
             </div>
-            <div className="space-y-4 text-gray-700">
-              <div>
+            <div className="space-y-5 text-gray-700">
+              <div className="bg-white rounded-lg p-4 shadow-sm">
                 <MapPin className="w-5 h-5 inline text-amber-600 mr-2" />
                 <strong>{language === 'ja' ? '住所：' : 'Address: '}</strong>
-                <p className="ml-7 mt-1">{t.info.address}</p>
+                <p className="ml-7 mt-1 text-gray-600">{t.info.address}</p>
               </div>
-              <div>
+              <div className="bg-white rounded-lg p-4 shadow-sm">
                 <strong>{language === 'ja' ? 'アクセス：' : 'Access: '}</strong>
-                <ul className="ml-7 mt-1 space-y-1">
+                <ul className="ml-7 mt-1 space-y-1 text-gray-600">
                   {t.info.access.map((item, index) => (
                     <li key={index}>• {item}</li>
                   ))}
                 </ul>
               </div>
-              <div>
+              <div className="bg-white rounded-lg p-4 shadow-sm">
                 <Clock className="w-5 h-5 inline text-amber-600 mr-2" />
                 <strong>{language === 'ja' ? '営業時間：' : 'Hours: '}</strong>
-                <p className="ml-7 mt-1">{t.info.hours.weekday}</p>
-                <p className="ml-7">{t.info.hours.weekend}</p>
+                <p className="ml-7 mt-1 text-gray-600">{t.info.hours.weekday}</p>
+                <p className="ml-7 text-gray-600">{t.info.hours.weekend}</p>
               </div>
-              <div>
+              <div className="bg-white rounded-lg p-4 shadow-sm">
                 <strong>{language === 'ja' ? '面積：' : 'Space: '}</strong>
-                {t.info.space}
+                <span className="text-gray-600"> {t.info.space}</span>
               </div>
             </div>
           </div>
