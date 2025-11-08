@@ -23,8 +23,9 @@ export function TravelHubSection() {
         nameEn: 'OnCarry Co., Ltd.',
         established: '2025年7月15日',
         address: '〒541-0047 大阪市中央区安土町2丁目5-5 本町明大ビル802',
-        phone: 'TEL. 06-6224-0979',
-        fax: 'FAX. 052-938-5366',
+        phone: 'TEL. 06-7777-2759',
+        corporateNumber: '法人番号 7120001278022',
+        bank: '取引銀行 三井住友銀行',
         capital: '資本金 500万円',
         business: '配車サービス及び荷物輸送に関する事業、医療プラットフォーム事業',
         executives: [
@@ -54,8 +55,9 @@ export function TravelHubSection() {
         nameEn: '株式会社オンキャリー',
         established: 'Established: July 15, 2025',
         address: '802 Honmachi Meidai Building, 2-5-5 Azuchimachi, Chuo-ku, Osaka 541-0047',
-        phone: 'TEL. 06-6224-0979',
-        fax: 'FAX. 052-938-5366',
+        phone: 'TEL. 06-7777-2759',
+        corporateNumber: 'Corporate Number: 7120001278022',
+        bank: 'Bank: Sumitomo Mitsui Banking Corporation',
         capital: 'Capital: 5 Million Yen',
         business: 'Vehicle dispatch service, Luggage transportation business, Medical platform business',
         executives: [
@@ -167,9 +169,10 @@ export function TravelHubSection() {
                   <div>
                     <div className="text-orange-400 font-bold mb-2 uppercase tracking-wider text-sm">Address</div>
                     <div className="text-gray-300 leading-relaxed">{t.company.address}</div>
-                    <div className="text-gray-400 text-sm mt-2">
-                      {t.company.phone}<br />
-                      {t.company.fax}
+                    <div className="text-gray-400 text-sm mt-3 space-y-1">
+                      <div>{t.company.phone}</div>
+                      <div>{t.company.corporateNumber}</div>
+                      <div>{t.company.bank}</div>
                     </div>
                   </div>
 
