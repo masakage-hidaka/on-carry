@@ -1,10 +1,112 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnCarry Travel Porter Web App</title>
+
+    <!-- Primary Meta Tags -->
+    <title>OnCarry - 旅行者向けポーターサービス | 大阪・なんばの荷物配送</title>
+    <meta name="title" content="OnCarry - 旅行者向けポーターサービス | 大阪・なんばの荷物配送" />
+    <meta name="description" content="大阪・なんばで旅行者向けの荷物配送サービスOnCarry。ホテル・空港への荷物運搬、観光案内、トラベルドクターなど、旅の不便を解消する総合トラベルサポートサービス。2025年12月Travel Hub Namba OPEN！" />
+    <meta name="keywords" content="OnCarry,オンキャリー,荷物配送,ポーターサービス,大阪,なんば,旅行,観光,手ぶら観光,トラベルサポート,Travel Hub Namba" />
+    <meta name="author" content="株式会社オンキャリー / OnCarry Co., Ltd." />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Japanese" />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="canonical" href="https://oncarry.jp/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oncarry.jp/" />
+    <meta property="og:title" content="OnCarry - 旅行者向けポーターサービス | 大阪・なんばの荷物配送" />
+    <meta property="og:description" content="大阪・なんばで旅行者向けの荷物配送サービスOnCarry。ホテル・空港への荷物運搬、観光案内、トラベルドクターなど、旅の不便を解消する総合トラベルサポートサービス。" />
+    <meta property="og:image" content="https://oncarry.jp/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="OnCarry" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://oncarry.jp/" />
+    <meta name="twitter:title" content="OnCarry - 旅行者向けポーターサービス | 大阪・なんばの荷物配送" />
+    <meta name="twitter:description" content="大阪・なんばで旅行者向けの荷物配送サービスOnCarry。ホテル・空港への荷物運搬、観光案内、トラベルドクターなど、旅の不便を解消する総合トラベルサポートサービス。" />
+    <meta name="twitter:image" content="https://oncarry.jp/og-image.jpg" />
+
+    <!-- Web App / PWA -->
+    <meta name="application-name" content="OnCarry" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="OnCarry" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#1e293b" />
+    <meta name="msapplication-TileColor" content="#1e293b" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preconnect to important domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "株式会社オンキャリー",
+      "alternateName": "OnCarry Co., Ltd.",
+      "url": "https://oncarry.jp",
+      "logo": "https://oncarry.jp/logo.png",
+      "description": "大阪・なんばで旅行者向けの荷物配送サービスを提供。ホテル・空港への荷物運搬、観光案内、トラベルドクターなど、旅の不便を解消する総合トラベルサポートサービス。",
+      "foundingDate": "2025-07-15",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "中央区安土町2丁目5-5 本町明大ビル802",
+        "addressLocality": "大阪市",
+        "addressRegion": "大阪府",
+        "postalCode": "541-0047",
+        "addressCountry": "JP"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+81-6-7777-2759",
+        "contactType": "Customer Service",
+        "availableLanguage": ["Japanese", "English", "Chinese", "Korean"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/on_carry.jp/",
+        "https://www.facebook.com/61579345594924"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "荷物配送・ポーターサービス",
+      "provider": {
+        "@type": "Organization",
+        "name": "OnCarry"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "大阪市"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceRange": "¥¥"
+      },
+      "description": "旅行者向けの荷物配送、ホテル・空港への運搬、観光案内、トラベルドクターサービスを提供"
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

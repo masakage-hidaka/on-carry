@@ -1,0 +1,16 @@
+# robots.txt for OnCarry
+# https://oncarry.jp
+
+User-agent: *
+Allow: /
+
+# Disallow admin and authentication pages
+Disallow: /admin/
+Disallow: /login
+Disallow: /signup
+
+# Sitemap location
+Sitemap: https://oncarry.jp/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

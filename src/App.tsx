@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Layout/Header';
+import { updateSEO, pageSEO } from './lib/seo';
 import { HomePage } from './pages/HomePage';
 import { BookingPage } from './pages/BookingPage';
 import { BookingConfirmationPage } from './pages/BookingConfirmationPage';
@@ -37,6 +38,14 @@ function App() {
     }
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    const pageKey = currentPage === 'book' ? 'transportation' : currentPage;
+    const seoConfig = pageSEO[pageKey];
+    if (seoConfig) {
+      updateSEO(seoConfig);
+    }
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {
