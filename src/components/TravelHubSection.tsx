@@ -1,4 +1,4 @@
-import { MapPin, Calendar, Sparkles, Building2, Users2 } from 'lucide-react';
+import { MapPin, Calendar, Sparkles, Building2, Users2, Instagram, Facebook } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export function TravelHubSection() {
@@ -28,6 +28,11 @@ export function TravelHubSection() {
         bank: '取引銀行 三井住友銀行',
         capital: '資本金 500万円',
         business: '配車サービス及び荷物輸送に関する事業、医療プラットフォーム事業',
+        social: {
+          title: 'SNS',
+          instagram: 'https://www.instagram.com/on_carry.jp/',
+          facebook: 'https://www.facebook.com/61579345594924',
+        },
         executives: [
           { role: '代表取締役', name: '塗野 直透', nameEn: 'Naoto Nurino' },
           { role: '取締役', name: '日髙 将景', nameEn: 'Masakage Hidaka' },
@@ -60,6 +65,11 @@ export function TravelHubSection() {
         bank: 'Bank: Sumitomo Mitsui Banking Corporation',
         capital: 'Capital: 5 Million Yen',
         business: 'Vehicle dispatch service, Luggage transportation business, Medical platform business',
+        social: {
+          title: 'Social Media',
+          instagram: 'https://www.instagram.com/on_carry.jp/',
+          facebook: 'https://www.facebook.com/61579345594924',
+        },
         executives: [
           { role: 'CEO', name: 'Naoto Nurino', nameEn: '塗野 直透' },
           { role: 'Director', name: 'Masakage Hidaka', nameEn: '日髙 将景' },
@@ -179,6 +189,34 @@ export function TravelHubSection() {
                   <div>
                     <div className="text-orange-400 font-bold mb-2 uppercase tracking-wider text-sm">Business</div>
                     <div className="text-gray-300 leading-relaxed text-sm">{t.company.business}</div>
+                  </div>
+
+                  <div>
+                    <div className="text-orange-400 font-bold mb-3 uppercase tracking-wider text-sm">{t.company.social.title}</div>
+                    <div className="flex gap-3">
+                      <a
+                        href={t.company.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        <div className="absolute -inset-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                          <Instagram className="w-6 h-6 text-white" />
+                        </div>
+                      </a>
+                      <a
+                        href={t.company.social.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                          <Facebook className="w-6 h-6 text-white" />
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
