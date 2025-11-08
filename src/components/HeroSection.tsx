@@ -1,4 +1,4 @@
-import { Shield, MapPin, Clock, DollarSign, Star, ChevronRight } from 'lucide-react';
+import { Shield, MapPin, Clock, DollarSign, Star, ChevronRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeroSectionProps {
@@ -60,118 +60,137 @@ export function HeroSection({ onBookNow }: HeroSectionProps) {
   const t = content[language];
 
   return (
-    <div className="relative bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
-          <div className="space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold shadow-lg">
-              <MapPin className="w-4 h-4" />
-              {t.badge}
+    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-50 via-orange-50/30 to-amber-50/30">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(251,146,60,0.08),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(245,158,11,0.08),transparent_50%)]"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200 to-transparent"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10 relative z-10">
+            <div className="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-bold shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-500 group cursor-pointer">
+              <MapPin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <span>{t.badge}</span>
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             </div>
 
-            {/* Headline */}
-            <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+            <div className="space-y-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.1] tracking-tight">
                 {t.headline}
               </h1>
-              <p className="text-xl sm:text-2xl text-gray-700 font-medium">
+              <p className="text-xl sm:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl">
                 {t.subheadline}
               </p>
             </div>
 
-            {/* Benefits Grid */}
             <div className="grid grid-cols-2 gap-4">
               {t.benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="flex items-center gap-3 bg-white/60 backdrop-blur rounded-lg p-4 border border-orange-200">
-                    <div className="flex-shrink-0">
-                      <Icon className="w-6 h-6 text-orange-600" />
+                  <div
+                    key={index}
+                    className="group relative"
+                  >
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl opacity-0 group-hover:opacity-20 blur transition duration-500"></div>
+                    <div className="relative flex items-center gap-4 bg-white/80 backdrop-blur-xl rounded-2xl p-5 border border-gray-200/50 shadow-lg shadow-black/5 group-hover:shadow-xl group-hover:shadow-orange-500/10 transition-all duration-500 group-hover:scale-105">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 group-hover:scale-110 transition-all duration-500">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-sm font-bold text-gray-900">{benefit.text}</span>
                     </div>
-                    <span className="text-sm font-semibold text-gray-900">{benefit.text}</span>
                   </div>
                 );
               })}
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={onBookNow}
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 text-lg"
+                className="group relative overflow-hidden px-8 py-5 rounded-2xl text-lg font-bold text-white transition-all duration-500 hover:scale-105 shadow-2xl shadow-orange-500/40 hover:shadow-orange-500/60"
               >
-                {t.cta}
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000"></div>
+                <span className="relative flex items-center justify-center gap-3">
+                  <Sparkles className="w-5 h-5" />
+                  {t.cta}
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
               </button>
-              <button
-                onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-bold rounded-xl shadow-md hover:shadow-lg transition-all border-2 border-orange-600"
-              >
-                {t.secondary}
+
+              <button className="group px-8 py-5 rounded-2xl text-lg font-bold text-gray-700 bg-white border-2 border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-500 shadow-lg shadow-black/5 hover:shadow-xl hover:scale-105">
+                <span className="flex items-center justify-center gap-2">
+                  {t.secondary}
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
               </button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="pt-6 border-t border-orange-200">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-3">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-red-400 border-2 border-white shadow-lg"
+                    ></div>
                   ))}
                 </div>
-                <span className="text-gray-900 font-bold">{t.trust.rating}</span>
-                <span className="text-gray-600 text-sm">{t.trust.reviews}</span>
-              </div>
-              <p className="text-gray-700 font-medium mb-4">
-                {t.trust.travelers}
-              </p>
-              <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                {t.features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-1">
-                    <span className="text-green-600">✓</span>
-                    <span>{feature}</span>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <span className="text-lg font-bold text-gray-900">{t.trust.rating}</span>
                   </div>
-                ))}
+                  <p className="text-sm text-gray-600 font-medium">{t.trust.reviews}</p>
+                </div>
               </div>
+              <div className="hidden sm:block w-px h-12 bg-gray-200"></div>
+              <p className="text-sm font-semibold text-gray-600">{t.trust.travelers}</p>
             </div>
           </div>
 
-          {/* Right Side - Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Woman traveler with suitcase"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
+          <div className="relative lg:h-[700px] group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl opacity-20 blur-3xl group-hover:opacity-30 transition duration-1000"></div>
 
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-xs">
-              <div className="flex items-center gap-4">
-                <div className="bg-green-100 p-3 rounded-full">
-                  <Shield className="w-8 h-8 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">
-                    {language === 'ja' ? '24時間監視' : '24/7 Surveillance'}
-                  </p>
-                  <p className="font-bold text-gray-900">
-                    {language === 'ja' ? '完全保険付き' : 'Fully Insured'}
-                  </p>
+            <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl shadow-black/20">
+              <img
+                src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Traveler with luggage"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+              <div className="absolute bottom-8 left-8 right-8 space-y-4">
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/50">
+                  <div className="space-y-3">
+                    {t.features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-3 group/item">
+                        <div className="w-6 h-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-sm font-semibold text-gray-900">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-orange-400 to-red-400 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full blur-3xl opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200 to-transparent"></div>
     </div>
   );
 }
